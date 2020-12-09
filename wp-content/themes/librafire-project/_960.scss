@@ -1,0 +1,26 @@
+/* 960px - 1169px
+-------------------------------------------------------------------------------*/
+
+.wp-block-gallery {
+	padding-right: 50px;
+	padding-left: 50px;
+	.previous, .next {
+	    max-width: 59px;
+	    &:hover {
+			max-width: 79px;
+		}
+	}
+	.previous {
+		left: 20px;
+		&:hover {
+			left: 0;
+		}
+	}
+	.next {
+		transform: rotate(180deg);
+		right: 20px;
+		&:hover {
+			right: 0;
+		}
+	}
+}

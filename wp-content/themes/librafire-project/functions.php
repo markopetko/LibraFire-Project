@@ -133,8 +133,40 @@ function librafire_project_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(array(
+        'name' => __('Author Box','html5reset' ),
+        'id'   => 'footer-widgets-1',
+        'description'   => __( 'These are widgets for the footer.','html5reset' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>'
+    ));
 }
 add_action( 'widgets_init', 'librafire_project_widgets_init' );
+
+//Adding external scripts or styles
+
+function themebs_enqueue_styles() {
+
+    wp_enqueue_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css',  array(), '4.2.1');
+
+}
+add_action( 'wp_enqueue_scripts', 'themebs_enqueue_styles');
+
+
+function themebs_enqueue_scripts() {
+    wp_register_script('jquery', ("https://code.jquery.com/jquery-3.3.1.min.js"), array(), '3.3.1', true );
+    wp_enqueue_script('jquery');
+  
+  
+    wp_register_script('bootstrap', ("https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"), array('jquery'), '4.2.1', true );
+    wp_enqueue_script('bootstrap');
+}
+add_action( 'wp_enqueue_scripts', 'themebs_enqueue_scripts');
+
+// This includs Bootstrap Navbar
+require get_template_directory() . '/inc/bootstrap-navwalker.php';
 
 /**
  * Enqueue scripts and styles.
@@ -178,3 +210,43 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+// Author Box
+
+function wporg_add_custom_box() {
+    $screens = [ 'post', 'wporg_cpt' ];
+    foreach ( $screens as $screen ) {
+        add_meta_box(
+            'wporg_box_id',                 // Unique ID
+            'Author Box',      // Box title
+            'wporg_custom_box_html',  // Content callback, must be of type callable
+            $screen                            // Post type
+        );
+    }
+}
+add_action( 'add_meta_boxes', 'wporg_add_custom_box' );
+
+
+function wporg_custom_box_html( $post ) {
+    $value = get_post_meta( $post->ID, '_wporg_meta_key', true );
+    ?>
+    <label for="wporg_field">Description for this field</label>
+    <select name="wporg_field" id="wporg_field" class="postbox">
+        <option value="left"<?php selected( $value, 'left' ); ?>>Left</option>
+        <option value="right" <?php selected( $value, 'right' ); ?>>Right</option>
+        <option value="no_img" <?php selected( $value, 'no_img' ); ?>>No author image</option>
+    </select>
+    <?php
+}
+
+//Similar Posts
+
+function wporg_save_postdata( $post_id ) {
+    if ( array_key_exists( 'wporg_field', $_POST ) ) {
+        update_post_meta(
+            $post_id,
+            '_wporg_meta_key',
+            $_POST['wporg_field']
+        );
+    }
+}
+add_action( 'save_post', 'wporg_save_postdata' );

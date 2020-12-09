@@ -1,0 +1,23 @@
+/* 320px - 479px
+-------------------------------------------------------------------------------*/
+
+.wp-block-gallery {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+body {
+	.site-main {
+		.post {			
+			.entry-content {
+				.video {
+					.wp-block-embed__wrapper {
+						iframe {
+							height: 175px;
+						}
+					}					
+				}
+			}
+		}
+	}
+}

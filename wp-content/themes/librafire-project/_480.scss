@@ -1,0 +1,41 @@
+/* 480px - 639px
+-------------------------------------------------------------------------------*/
+.wp-block-gallery {
+	padding-right: 30px;
+	padding-left: 30px;
+	.previous, .next {
+	    max-width: 49px;
+	    &:hover {
+			max-width: 59px;
+		}
+	}
+	.previous {
+		left: 10px;
+		&:hover {
+			left: 0px;
+		}
+	}
+	.next {
+		transform: rotate(180deg);
+		right: 10px;
+		&:hover {
+			right: 0px;
+		}
+	}
+}
+
+body {
+	.site-main {
+		.post {			
+			.entry-content {
+				.video {
+					.wp-block-embed__wrapper {
+						iframe {
+							height: 250px;
+						}
+					}					
+				}
+			}
+		}
+	}
+}

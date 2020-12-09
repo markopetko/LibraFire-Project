@@ -1,0 +1,106 @@
+/* 640px - 767px
+-------------------------------------------------------------------------------*/
+
+body {
+	.site-main {
+		.post {
+			header {
+				.post-thumbnail {
+					img {
+					    height: 200px;
+					}
+				}
+			}			
+			.entry-content {	
+				margin-top: 40px;
+				.entry-title {
+					a {
+						font-size: 34px!important;
+					}					
+				}
+				p, .wp-block-image {
+					margin-top: 15px;
+					margin-bottom: 15px;
+					
+				}
+				.author {
+					.col-md-3 {
+						flex: 0 0 100%;
+						max-width: 100%;
+					}
+					.col-md-9 {
+					    flex: 0 0 100%;
+						max-width: 100%;
+					}
+					.col-12  {
+						padding: 15px;
+						margin: 0 auto;
+						display: flex;
+					    flex-direction: column;
+					    justify-content: center;
+					    align-items: center;
+						.bio {
+							padding-bottom: 15px;
+							text-align: left;
+						}
+						.social-links {
+							margin-bottom: 0;
+						}
+					}
+				}
+				.copy-section {
+					p {
+						font-size: 24px;
+						margin-top: 20px;
+					}
+				}
+				.video {
+					.wp-block-embed__wrapper {
+						iframe {
+							height: 350px;
+						}
+					}					
+				}
+			}
+			.related-post {
+				padding-bottom: 0;
+				margin-top: 20px;
+				h2 { 
+					padding-top: 30px;
+					padding-bottom: 20px;
+					font-size: 34px;
+				}
+				.relatedposts {
+					.col-md-4 {
+						max-width: 500px;
+						margin: 0 auto 25px auto;
+						.title {
+							a {
+								font-size: 24px;
+								line-height: 28px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.quote {
+	padding-top: 90px;
+	padding-bottom: 30px;
+	margin: 50px 0;
+	border-top: 1px solid #C4BC94;
+	border-bottom: 1px solid #C4BC94;
+	background-image: url('img/qoute.png')!important;
+	background-repeat: no-repeat!important;
+    background-position: left 0px top 30px!important;
+    background-size: auto!important;
+	blockquote {
+		p {
+			font-size: 26px;
+			line-height: 36px;
+		}
+	}
+}

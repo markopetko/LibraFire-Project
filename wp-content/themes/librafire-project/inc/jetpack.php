@@ -33,9 +33,9 @@ function librafire_project_jetpack_setup() {
 		'jetpack-content-options',
 		array(
 			'post-details' => array(
-				'stylesheet' => 'librafire-project-style',
-				'date'       => '.posted-on',
 				'categories' => '.cat-links',
+				'stylesheet' => 'librafire-project-style',
+				'date'       => '.posted-on',				
 				'tags'       => '.tags-links',
 				'author'     => '.byline',
 				'comment'    => '.comments-link',
